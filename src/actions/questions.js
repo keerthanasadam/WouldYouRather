@@ -1,9 +1,9 @@
 import { _getQuestions } from "./../utils/_DATA";
 
-export const RECEIVE_Questions = "RECEIVE_Questions";
+export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export function receiveQuestions(questions) {
   return {
-    type: RECEIVE_Questions,
+    type: RECEIVE_QUESTIONS,
     questions
   };
 }
