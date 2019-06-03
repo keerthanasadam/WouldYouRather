@@ -8,7 +8,7 @@ export function receiveQuestions(questions) {
   };
 }
 
-function handleGetQuestions() {
+export function handleGetQuestions() {
   return dispatch => {
     return _getQuestions().then(questions => {
       dispatch(receiveQuestions(questions));
