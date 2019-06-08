@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "./../actions/authedUser";
+import { Link } from "react-router-dom";
 export class Login extends React.Component {
   state = {
     user: ""
@@ -10,6 +11,7 @@ export class Login extends React.Component {
     e.preventDefault();
     console.log(this.state.user);
     this.props.dispatch(setAuthedUser(this.state.user));
+    this.props.history.push("/home");
   };
 
   updateUser = event => {

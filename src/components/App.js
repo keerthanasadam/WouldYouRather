@@ -2,13 +2,13 @@ import "./App.css";
 
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-
-import { handleGetUsers } from "./../actions/users";
-import Login from "./Login";
-import Home from "./Home";
-import Nav from "./Nav";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { handleGetQuestions } from "../actions/questions";
+import { handleGetUsers } from "./../actions/users";
+import Home from "./Home";
+import Login from "./Login";
+import Nav from "./Nav";
 
 class App extends React.Component {
   componentDidMount() {
@@ -22,16 +22,14 @@ class App extends React.Component {
       <Router>
         <Fragment>
           <div className="container">
+            <Nav />
             {this.props.loading === true ? (
               <div>
                 <Route path="/" component={Login} />
               </div>
             ) : (
               <div>
-                <Nav />
-                <div>
-                  <Route path="/home" exact component={Home} />
-                </div>
+                <Route path="/home" exact component={Home} />
               </div>
             )}
           </div>
