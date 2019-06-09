@@ -55,7 +55,7 @@ class Home extends React.Component {
 function mapStateToProps({ questions, authedUser, users }) {
   let allQuestions = Object.values(questions);
   let answeredIds = Object.keys(users[authedUser].answers);
-  let unansweredIds = users[authedUser].questions;
+  // let unansweredIds = users[authedUser].questions;
   return {
     loading:
       Object.entries(questions).length === 0 &&
@@ -64,7 +64,7 @@ function mapStateToProps({ questions, authedUser, users }) {
       question => answeredIds.findIndex(id => id === question.id) !== -1
     ),
     unansweredQuestions: allQuestions.filter(
-      question => unansweredIds.findIndex(id => id === question.id) !== -1
+      question => answeredIds.findIndex(id => id === question.id) === -1
     )
   };
 }

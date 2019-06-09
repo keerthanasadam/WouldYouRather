@@ -8,7 +8,7 @@ class Poll extends React.Component {
     const { question } = this.props;
     return (
       <div>
-        <p>{question.author} asks</p>
+        <p className="text-center">{question.author} asks</p>
         <div>
           <Preview question={question} />
         </div>
