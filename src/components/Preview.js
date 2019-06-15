@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 class Preview extends React.Component {
   render() {
     const { question } = this.props;
@@ -8,7 +9,9 @@ class Preview extends React.Component {
         <div>
           <p> Would You Rather</p>
           <div>{question.optionOne.text}</div>
-          <button> View Poll</button>
+          <Link to={`/question/${question.id}`}>
+            <button> View Poll</button>
+          </Link>
         </div>
       </div>
     );

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { handleGetQuestions } from "../actions/questions";
 import { handleGetUsers } from "./../actions/users";
+import Detail from "./Detail";
 import Home from "./Home";
 import Login from "./Login";
 import Nav from "./Nav";
@@ -30,6 +31,7 @@ class App extends React.Component {
             ) : (
               <div>
                 <Route path="/home" exact component={Home} />
+                <Route path="/question/:id" exact component={Detail} />
               </div>
             )}
           </div>
