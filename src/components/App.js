@@ -10,6 +10,7 @@ import Detail from "./Detail";
 import Home from "./Home";
 import Login from "./Login";
 import Nav from "./Nav";
+import NewQuestion from "./NewQuestion";
 
 class App extends React.Component {
   componentDidMount() {
@@ -32,6 +33,7 @@ class App extends React.Component {
               <div>
                 <Route path="/home" exact component={Home} />
                 <Route path="/question/:id" exact component={Detail} />
+                <Route path="/new" exact component={NewQuestion} />
               </div>
             )}
           </div>
