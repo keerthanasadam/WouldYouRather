@@ -37,29 +37,27 @@ export class NewQuestion extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h3> Create New Question</h3>
-        <div>
-          <p> Complete the question:</p>
-          <p>
-            <b>Would You rather...</b>
-          </p>
+      <div className="new-question">
+        <h3 className="new-header"> Create New Question</h3>
+        <form onSubmit={this.handleSubmit} className="new-body">
+          <div> Complete the question:</div>
+          <h3>Would You rather...</h3>
           <input
             type="text"
             placeholder="Enter Option One Text Here"
             onChange={this.handleOneChange}
             value={this.state.optionOneText}
           />
-          <hr /> OR
+          <div className="divider"> OR</div>
           <input
             type="text"
             placeholder="Enter Option Two Text Here"
             onChange={this.handleTwoChange}
             value={this.state.optionTwoText}
           />
-          <button>Submit</button>
-        </div>
-      </form>
+          <button className="btn">Submit</button>
+        </form>
+      </div>
     );
   }
 }

@@ -25,25 +25,25 @@ class Question extends React.Component {
         answer
       })
     );
+    this.props.showQuestion(false);
   };
 
   render() {
-    console.log(this.props);
     const question = this.props.question;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <p> Would You Rather</p>
-        <div>
+      <form onSubmit={this.handleSubmit} className="poll-question">
+        <h3> Would You Rather...</h3>
+        <div className="question-option">
           <input
             type="radio"
             name="question"
             checked={this.state.answer === "optionOne"}
             value="optionOne"
             onChange={this.handleAnswerChanged}
-          />{" "}
-          {question.optionOne.text}
+          />
+          <span>{question.optionOne.text}</span>
         </div>
-        <div>
+        <div className="question-option">
           <input
             type="radio"
             name="question"
@@ -51,9 +51,10 @@ class Question extends React.Component {
             checked={this.state.answer === "optionTwo"}
             onChange={this.handleAnswerChanged}
           />
-          {question.optionTwo.text}
+          <span>{question.optionTwo.text}</span>
         </div>
-        <button>Submit</button>
+
+        <button className="btn">Submit</button>
       </form>
     );
   }

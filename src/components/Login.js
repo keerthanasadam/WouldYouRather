@@ -23,25 +23,26 @@ export class Login extends React.Component {
   render() {
     const { users } = this.props;
     return (
-      <div className="d-flex align-items-center">
-        <div className="card">
-          <div className="card-header">
-            Welcome To The Would You Rather Application
-          </div>
-          <div className="card-body">
-            <h5 className="card-title"> SignIn Page</h5>
-            <form onSubmit={this.handleLogin}>
-              <select value={this.state.user} onChange={this.updateUser}>
-                <option value="">Select User</option>
-                {users.map(user => (
-                  <option key={user.id} value={user.id}>
-                    {user.name}
-                  </option>
-                ))}
-              </select>
-              <button type="submit">Sign In</button>
-            </form>
-          </div>
+      <div className="login">
+        <div className="login-header">
+          <h4> Welcome to the Would You Rather Application!</h4>
+          <div> Please sign in to continue</div>
+        </div>
+        <div className="login-body">
+          <h5 className="center"> Sign In Page</h5>
+          <form onSubmit={this.handleLogin}>
+            <select value={this.state.user} onChange={this.updateUser}>
+              <option value="">Select User</option>
+              {users.map(user => (
+                <option key={user.id} value={user.id}>
+                  {user.name}
+                </option>
+              ))}
+            </select>
+            <button className="btn" type="submit">
+              Sign In
+            </button>
+          </form>
         </div>
       </div>
     );

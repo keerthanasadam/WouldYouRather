@@ -29,14 +29,16 @@ export class Nav extends React.Component {
           </li>
         </ul>
         {this.props.user == null ? null : (
-          <ul>
-            <li>Hello, {this.props.user.name}</li>
-            <li>
-              <Link to={"/"} onClick={this.handleLogout}>
-                Logout
-              </Link>
-            </li>
-          </ul>
+          <div className="user-info">
+            <div>Hello, {this.props.user.name}</div>
+            <ul>
+              <li>
+                <Link to={"/"} onClick={this.handleLogout}>
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          </div>
         )}
       </nav>
     );

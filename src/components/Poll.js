@@ -7,7 +7,7 @@ class Poll extends React.Component {
   render() {
     const { question } = this.props;
     return (
-      <div>
+      <div className="poll">
         <p className="text-center">{question.author} asks</p>
         <div>
           <Preview question={question} />

@@ -26,6 +26,7 @@ class App extends React.Component {
         <Fragment>
           <div className="container">
             <Nav />
+            <div className="nav-divider" />
             {this.props.loading === true ? (
               <div>
                 <Route path="/" component={Login} />

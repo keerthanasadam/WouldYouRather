@@ -5,16 +5,27 @@ export class Leader extends React.Component {
     return (
       <div>
         {this.props.users.map(user => (
-          <div key={user.id}>
-            <img src={user.avatarURL} alt="user avatar" />
+          <div key={user.id} className="leader-board">
             <div>
-              <h2>{user.name}</h2>
-              <p>Answered questions {Object.keys(user.answers).length} </p>
-              <p>Created questions {user.questions.length} </p>
+              <img src={user.avatarURL} alt="user avatar" className="avatar" />
             </div>
-            <div>
-              <p>Score</p>
-              <p>{Object.keys(user.answers).length + user.questions.length}</p>
+            <div className="leader-info">
+              <h2>{user.name}</h2>
+              <div className="leader-question">
+                Answered questions
+                <span className="end">{Object.keys(user.answers).length}</span>
+              </div>
+              <hr />
+              <div className="leader-question">
+                Created questions
+                <span> {user.questions.length} </span>
+              </div>
+            </div>
+            <div className="leader-score">
+              <div className="score-header">Score</div>
+              <div className="leader-total-score">
+                {Object.keys(user.answers).length + user.questions.length}
+              </div>
             </div>
           </div>
         ))}
