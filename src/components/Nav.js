@@ -31,6 +31,11 @@ export class Nav extends React.Component {
         {this.props.user == null ? null : (
           <div className="user-info">
             <div>Hello, {this.props.user.name}</div>
+            <img
+              className="avatar-small"
+              src={this.props.user.avatarURL}
+              alt="User avatar"
+            />
             <ul>
               <li>
                 <Link to={"/"} onClick={this.handleLogout}>

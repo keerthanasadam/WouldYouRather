@@ -165,6 +165,11 @@ input {
   height: 100px;
 }
 
+.avatar-small {
+  width: 50px;
+  height: 50px;
+}
+
 .leader-info {
   border-left: 1px solid #dad7d7;
   border-right: 1px solid #dad7d7;
