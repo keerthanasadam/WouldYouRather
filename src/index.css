@@ -159,9 +159,10 @@ input {
 }
 
 .avatar {
-  height: 50px;
   border-radius: 25px;
   margin: 10px;
+  width: 100px;
+  height: 100px;
 }
 
 .leader-info {

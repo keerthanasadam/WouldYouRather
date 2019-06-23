@@ -8,7 +8,7 @@ export class Leader extends React.Component {
           <div key={user.id} className="leader-board">
             <div>
               <img
-                src={require(user.avatarURL)}
+                src={user.avatarURL}
                 alt="user avatar"
                 className="avatar"
                 width="100px"

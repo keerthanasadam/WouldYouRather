@@ -12,7 +12,7 @@ export default class Poll extends React.Component {
       <div className="poll">
         <div className="poll-header">{user.name} asks</div>
         <div>
-          <Preview question={question} />
+          <Preview question={question} user={user} />
         </div>
       </div>
     );

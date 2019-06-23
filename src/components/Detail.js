@@ -40,7 +40,7 @@ export class Detail extends React.Component {
       <div className="poll">
         <div className="poll-header">{user.name} asks: </div>
         <div className="poll-body">
-          <img src="user.avatarURL" alt="user_avatar" className="avatar" />
+          <img src={user.avatarURL} alt="user_avatar" className="avatar" />
           {this.state.showQuestion ? (
             <Question
               id={question.id}
