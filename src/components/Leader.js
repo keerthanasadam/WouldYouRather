@@ -7,7 +7,13 @@ export class Leader extends React.Component {
         {this.props.users.map(user => (
           <div key={user.id} className="leader-board">
             <div>
-              <img src={user.avatarURL} alt="user avatar" className="avatar" />
+              <img
+                src={require(user.avatarURL)}
+                alt="user avatar"
+                className="avatar"
+                width="100px"
+                height="100px"
+              />
             </div>
             <div className="leader-info">
               <h2>{user.name}</h2>

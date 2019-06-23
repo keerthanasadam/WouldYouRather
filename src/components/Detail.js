@@ -1,27 +1,36 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import Question from "./Question";
 import Answer from "./Answer";
+import Question from "./Question";
+
 export class Detail extends React.Component {
   state = {
-    showQuestion: ""
+    showQuestion: "",
+    authedUserOption: ""
   };
 
   componentDidMount() {
-    console.log(Object.keys(this.props.user.answers));
-    const show =
-      Object.keys(this.props.user.answers).find(
-        answerId => answerId !== this.props.question.id
-      ) !== -1;
-    console.log("showQuestion", show);
+    let show, value;
+    const element = Object.keys(this.props.answers).find(
+      answerId => answerId === this.props.question.id
+    );
+    console.log(element);
+    if (!!element) {
+      show = false;
+      value = this.props.answers[element];
+    } else {
+      show = true;
+    }
     this.setState({ showQuestion: show });
+    this.setState({ authedUserOption: value });
   }
 
-  handleChange = value => {
+  handleChange = (value, answer) => {
     this.setState({
       showQuestion: value
     });
+    this.setState({ authedUserOption: answer });
   };
 
   render() {
@@ -40,7 +49,10 @@ export class Detail extends React.Component {
               showQuestion={this.handleChange}
             />
           ) : (
-            <Answer question={question} />
+            <Answer
+              question={question}
+              selectedAnswer={this.state.authedUserOption}
+            />
           )}
         </div>
       </div>
@@ -56,11 +68,15 @@ function mapStateToProps({ questions, users, authedUser }, props) {
   const author = Object.values(users).find(
     user => user.id === foundQuestion.author
   );
+  const authedUserAnswers = Object.values(users).find(
+    user => user.id === authedUser
+  ).answers;
   return {
     id,
     question: foundQuestion,
     user: author,
-    authedUser
+    authedUser,
+    answers: authedUserAnswers
   };
 }
 

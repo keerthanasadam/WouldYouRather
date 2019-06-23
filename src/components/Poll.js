@@ -1,14 +1,16 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import Preview from "./Preview";
 
-class Poll extends React.Component {
+export default class Poll extends React.Component {
   render() {
-    const { question } = this.props;
+    const question = this.props.question;
+    const user = Object.values(this.props.users).find(
+      user => user.id === question.author
+    );
     return (
       <div className="poll">
-        <p className="text-center">{question.author} asks</p>
+        <div className="poll-header">{user.name} asks</div>
         <div>
           <Preview question={question} />
         </div>
@@ -16,5 +18,3 @@ class Poll extends React.Component {
     );
   }
 }
-
-export default connect()(Poll);

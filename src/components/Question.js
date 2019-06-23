@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import { handleSaveQuestionAnswer } from "../actions/questions";
 
 class Question extends React.Component {
@@ -25,14 +26,14 @@ class Question extends React.Component {
         answer
       })
     );
-    this.props.showQuestion(false);
+    this.props.showQuestion(false, answer);
   };
 
   render() {
     const question = this.props.question;
     return (
       <form onSubmit={this.handleSubmit} className="poll-question">
-        <h3> Would You Rather...</h3>
+        <h3> Would You Rather ...</h3>
         <div className="question-option">
           <input
             type="radio"

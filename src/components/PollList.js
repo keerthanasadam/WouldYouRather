@@ -1,16 +1,19 @@
 import React from "react";
-import { connect } from "react-redux";
+
 import Poll from "./Poll";
-class PollList extends React.Component {
+
+export default class PollList extends React.Component {
   render() {
     return (
       <div>
         {this.props.questions.map(question => (
-          <Poll question={question} key={question.id} />
+          <Poll
+            question={question}
+            key={question.id}
+            users={this.props.users}
+          />
         ))}
       </div>
     );
   }
 }
-
-export default connect()(PollList);

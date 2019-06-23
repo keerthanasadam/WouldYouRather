@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { handleGetQuestions } from "./../actions/questions";
 import PollList from "./PollList";
 
 class Home extends React.Component {
@@ -25,25 +24,33 @@ class Home extends React.Component {
   };
   render() {
     return (
-      <div>
-        <nav className="nav">
-          <ul>
-            <li>
-              <button onClick={this.handleUnAnswered}>
-                Unaswered Questions
-              </button>
-            </li>
-            <li>
-              <button onClick={this.handleAnswered}>Answered Questions</button>
-            </li>
-          </ul>
-        </nav>
+      <div className="poll-list">
+        <div className="poll-list-header">
+          <button
+            className={this.state.questionType === "unanswered" ? "active" : ""}
+            onClick={this.handleUnAnswered}
+          >
+            Unaswered Questions
+          </button>
+          <button
+            className={this.state.questionType === "answered" ? "active" : ""}
+            onClick={this.handleAnswered}
+          >
+            Answered Questions
+          </button>
+        </div>
         {this.props.loading === true ? null : (
           <div>
             {this.state.questionType === "answered" ? (
-              <PollList questions={this.props.answeredQuestions} />
+              <PollList
+                questions={this.props.answeredQuestions}
+                users={this.props.users}
+              />
             ) : (
-              <PollList questions={this.props.unansweredQuestions} />
+              <PollList
+                questions={this.props.unansweredQuestions}
+                users={this.props.users}
+              />
             )}
           </div>
         )}
@@ -65,7 +72,8 @@ function mapStateToProps({ questions, authedUser, users }) {
     ),
     unansweredQuestions: allQuestions.filter(
       question => answeredIds.findIndex(id => id === question.id) === -1
-    )
+    ),
+    users: users
   };
 }
 
